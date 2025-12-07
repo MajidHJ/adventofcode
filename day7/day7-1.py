@@ -10,7 +10,6 @@ with open(path) as f:
         spliter_idx = ([idx for idx,ch in enumerate(i) if ch == '^'])
         for s in spliter_idx:
             if s in beam_idx:
-
                 beam_idx.remove(s)
                 beam_idx.add(s-1)
                 beam_idx.add(s+1)
