@@ -3,9 +3,6 @@ import math
 spath = 'day8/sample.txt'
 ipath = 'day8/input.txt'
 path = ipath
-number_of_connections = 1000
-
-
 
 def pairwise_dist_python(points):
     n = len(points)
@@ -32,9 +29,10 @@ sections.append(main_section)
 dist.sort(key=lambda x : x[2])
 
 
-
-for i in dist[:number_of_connections]:
+for i in dist:
     a,b,d = i
+    change = True
+
     if a in main_section.copy() and b in main_section.copy():
         main_section.remove(a)
         main_section.remove(b)
@@ -69,17 +67,15 @@ for i in dist[:number_of_connections]:
             sections.remove(b_sec)
             sections.append(merge)
         else:
-            ...
+            change = False
+    
+    if change:
+        x = a
+        y = b
+            
 
-        
+    
 
-jb_len = []
+print(points[x][0]*points[y][0])
 
-for i in sections[1:]:
-    jb_len.append(len(i))
-
-
-jb_len.sort()
-total = jb_len[-1]*jb_len[-2]*jb_len[-3]
-print(total)
-
+# print(points[sections[1][-1][0]]*points[sections[1][-2][0]])
