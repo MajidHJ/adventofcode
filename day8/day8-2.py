@@ -83,5 +83,3 @@ jb_len.sort()
 total = jb_len[-1]*jb_len[-2]*jb_len[-3]
 print(total)
 
-
-
